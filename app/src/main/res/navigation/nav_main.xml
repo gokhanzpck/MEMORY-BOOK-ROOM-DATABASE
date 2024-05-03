@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.gokhanzopcuk.memorybook.fragment.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/homeAddGecis"
+            app:destination="@id/addMomentFragment" />
+        <action
+            android:id="@+id/homeDeleteGecis"
+            app:destination="@id/deleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMomentFragment"
+        android:name="com.gokhanzopcuk.memorybook.fragment.AddMomentFragment"
+        android:label="fragment_add_moment"
+        tools:layout="@layout/fragment_add_moment" >
+        <action
+            android:id="@+id/addHomeGecis"
+            app:destination="@id/homePageFragment" />
+        <argument
+            android:name="gecis"
+            app:argType="com.gokhanzopcuk.memorybook.Model.Place" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteFragment"
+        android:name="com.gokhanzopcuk.memorybook.fragment.DeleteFragment"
+        android:label="fragment_delete"
+        tools:layout="@layout/fragment_delete" >
+        <action
+            android:id="@+id/deleteHomeGecis"
+            app:destination="@id/homePageFragment" />
+        <argument
+            android:name="gecis2"
+            app:argType="com.gokhanzopcuk.memorybook.Model.Place" />
+    </fragment>
+</navigation>
